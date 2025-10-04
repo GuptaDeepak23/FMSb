@@ -14,16 +14,9 @@ load_dotenv()
 app = FastAPI(title="Feedback Management System API")
 
 # CORS middleware
-allowed_origins = [
-    "http://localhost:3000",
-    "https://*.railway.app",
-    "https://*.vercel.app",
-    "https://*.netlify.app"
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"],  # Allow all origins for now
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
